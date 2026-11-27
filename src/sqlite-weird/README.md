@@ -44,6 +44,19 @@ The lower diagram shows four NAND gates connected to make **XOR**, which outputs
 
 These are simulated gates. Each symbol represents a row in the database, and each wire represents a reference to an input or an earlier gate's answer.
 
+## How the gates become a calculator
+
+The calculator connects many identical NAND gates so that their simple answers combine into addition. Each gate takes two bits, zeros or ones, and produces one bit. **It outputs 0 only when both inputs are 1.** Connecting gates lets them perform more useful operations:
+
+1. **Four NAND gates make XOR.** XOR answers "Are these two bits different?" That gives part of the answer when adding binary digits.
+2. **Nine NAND gates make a one-digit adder.** It adds two bits plus a carry from the previous digit. It produces an answer bit and a new carry, like carrying the 1 when adding numbers on paper.
+3. **Six adders work together.** Their carries connect from one digit to the next. These **54 NAND gates** add the previous total to the new timecard's hours.
+4. **Eleven more NAND gates check the result.** They examine the answer's bits and produce a stop signal of 1 when the total exceeds 40.
+
+For example, when the total is **29** and the next card has **16** hours, the adder circuit produces the bits representing **45**. The checking circuit then turns the stop signal on.
+
+SQLite follows those connections one gate at a time and saves each answer. **The wiring makes it a calculator; each individual gate knows only its tiny two-input rule.**
+
 ## Run it
 
 You need stock SQLite 3.38 or newer with JSON support, a POSIX shell, `mkdir` and `cat`. The launcher checks SQLite's version and JSON support before setup. No extension, host-language callback or GUI is involved.
