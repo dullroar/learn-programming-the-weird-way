@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-labelledby="title desc">
+  <title id="title">NAND gates: one gate and four connected as XOR</title>
+  <desc id="desc">A NAND gate has two inputs and a small inversion circle on its output. Its output is zero only when both inputs are one. Below, four NAND gates form XOR: t is NAND of A and B, u is NAND of A and t, v is NAND of B and t, and the answer is NAND of u and v. Connection dots distinguish joined wires from crossings. This is a DEMO ONLY illustration of the simulated database circuit.</desc>
+  <defs>
+    <g id="nand" fill="#fff" stroke="#213547" stroke-width="3">
+      <path d="M0,-35 H40 A35,35 0 0 1 40,35 H0 Z"/>
+      <circle cx="82" cy="0" r="7"/>
+    </g>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #213547; }
+      .heading { font-size: 25px; font-weight: 700; }
+      .label { font-size: 20px; }
+      .small { font-size: 17px; }
+      .wire { fill: none; stroke: #213547; stroke-width: 3; stroke-linejoin: round; }
+      .dot { fill: #213547; }
+    </style>
+  </defs>
+  <rect width="1000" height="700" rx="16" fill="#f6f8fb"/>
+  <text x="35" y="43" class="heading">A calculator built from NAND gates</text>
+  <text x="965" y="42" text-anchor="end" class="small">DEMO ONLY</text>
+  <path d="M35,65 H965" stroke="#cbd5e1"/>
+  <text x="35" y="103" class="heading">One NAND gate</text>
+  <text x="70" y="162" class="label">Input A</text>
+  <text x="70" y="202" class="label">Input B</text>
+  <path class="wire" d="M155,155 H235 M155,195 H235 M324,175 H440"/>
+  <use href="#nand" x="235" y="175"/>
+  <text x="272" y="181" text-anchor="middle" class="small">AND</text>
+  <text x="455" y="182" class="label">Output</text>
+  <path d="M317,187 L345,238" fill="none" stroke="#64748b" stroke-width="1.5"/>
+  <text x="205" y="263" class="small">Small circle = invert the answer</text>
+  <text x="615" y="102" class="label">Inputs</text>
+  <text x="815" y="102" class="label">Output</text>
+  <path d="M600,113 H930 M600,151 H930 M600,189 H930 M600,227 H930 M600,265 H930 M775,80 V265" stroke="#cbd5e1"/>
+  <g class="label" text-anchor="middle">
+    <text x="660" y="140">0 and 0</text><text x="850" y="140">1</text>
+    <text x="660" y="178">0 and 1</text><text x="850" y="178">1</text>
+    <text x="660" y="216">1 and 0</text><text x="850" y="216">1</text>
+    <text x="660" y="254">1 and 1</text><text x="850" y="254" font-weight="700">0</text>
+  </g>
+  <text x="615" y="291" class="small">Only two 1s produce a 0.</text>
+  <path d="M35,320 H965" stroke="#cbd5e1"/>
+  <text x="35" y="359" class="heading">Four NAND gates make XOR</text>
+  <text x="35" y="387" class="small">XOR answers: are the two inputs different?</text>
+  <!-- A branches to gate t and the top input of gate u. -->
+  <path class="wire" d="M90,465 H230 M145,465 V420 H470 V445 H500"/>
+  <!-- B branches to gate t and the lower input of gate v. -->
+  <path class="wire" d="M90,505 H230 M145,505 V585 H470 V565 H500"/>
+  <!-- t branches to u and v. Crossings with input wires have no dots. -->
+  <path class="wire" d="M319,485 H410 M410,485 V485 H500 M410,485 V525 H500"/>
+  <!-- Outputs u and v feed the final NAND. -->
+  <path class="wire" d="M589,465 H650 V485 H710 M589,545 H650 V525 H710 M799,505 H865"/>
+  <use href="#nand" x="230" y="485"/>
+  <use href="#nand" x="500" y="465"/>
+  <use href="#nand" x="500" y="545"/>
+  <use href="#nand" x="710" y="505"/>
+  <g class="dot">
+    <circle cx="145" cy="465" r="5"/><circle cx="145" cy="505" r="5"/>
+    <circle cx="410" cy="485" r="5"/>
+  </g>
+  <g class="label">
+    <text x="55" y="472">A</text><text x="55" y="512">B</text>
+    <text x="350" y="474">t</text><text x="610" y="453">u</text><text x="610" y="567">v</text>
+    <text x="875" y="512">A XOR B</text>
+  </g>
+  <g class="small" text-anchor="middle">
+    <text x="267" y="491">NAND</text><text x="537" y="471">NAND</text>
+    <text x="537" y="551">NAND</text><text x="747" y="511">NAND</text>
+  </g>
+  <text x="35" y="631" class="small">Read left to right. Dots join wires. Each gate's output feeds the next gates.</text>
+  <text x="35" y="663" class="small">In the app: 6 adders × 9 NAND gates + 11 NAND gates for the stop rule = 65 gates.</text>
+</svg>

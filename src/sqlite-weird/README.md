@@ -19,6 +19,31 @@ tags: [control-flow, database-trigger, dataflow-programming, interpreter-and-vir
 
 SQLite has been asked to store timecards in most of these entries. This time it has to be the computer too. Its tables contain a six-bit ripple-carry adder and a greater-than-40 comparator, built from 65 NAND gates. SQL may generate hours and decode the finished bits for display. It may never add the running total or compare that total with 40. Those answers must travel through the gates.
 
+## The idea in everyday language
+
+Think of it as a tiny electronic calculator built from database rows.
+
+1. **Start the demo.** The launcher opens the database and asks it to begin a new run.
+2. **Make up a timecard.** The database picks a fictional number of hours between 10 and 19, starting with Meetings.
+3. **Feed the calculator.** It turns those hours and the previous total into patterns of zeros and ones.
+4. **Work through the circuit.** It follows 65 tiny logic gates, called NAND gates. Together, they calculate the new total and decide whether it exceeds 40.
+5. **Repeat or stop.** If the total is 40 or less, it makes another card for the next category. If it exceeds 40, it keeps that final card and stops.
+6. **Save and show everything.** It displays the timecards and totals, while saving every circuit step so you can inspect how it reached the answer.
+
+The unusual part: **the database simulates a circuit that adds the hours.** All timecards are fictional and labeled **DEMO ONLY**.
+
+## What a NAND gate looks like
+
+A NAND gate takes two inputs, each either 0 or 1. It outputs 0 only when both inputs are 1; every other combination outputs 1. Think of 0 as off and 1 as on.
+
+![A NAND gate symbol with two inputs and an output bubble, its four possible input combinations, and four NAND gates connected to make XOR.](nand-gates.svg)
+
+The curved shape is an AND gate; the little circle on its output means "invert the answer". Together they form NAND, short for "NOT AND". The lines represent wires. A solid dot marks a connection, while a crossing without a dot is not a connection.
+
+The lower diagram shows four NAND gates connected to make **XOR**, which outputs 1 when its two inputs differ. Trace each wire from left to right: a gate's answer becomes another gate's input. This is the same four-gate arrangement used at the start of each adder in this app. Add five more NAND gates and a carry input, and it can add one pair of binary digits. Six such adders use 54 gates; 11 more gates decide when to stop, for 65 gates altogether.
+
+These are simulated gates. Each symbol represents a row in the database, and each wire represents a reference to an input or an earlier gate's answer.
+
 ## Run it
 
 You need stock SQLite 3.38 or newer with JSON support, a POSIX shell, `mkdir` and `cat`. The launcher checks SQLite's version and JSON support before setup. No extension, host-language callback or GUI is involved.
