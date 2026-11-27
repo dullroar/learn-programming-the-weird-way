@@ -1,6 +1,6 @@
 # Learn Programming the Weird Way!
 
-> **40 challenges in 29 languages**
+> **41 challenges in 29 languages**
 <!-- Keep this line current whenever an entry is added: challenges = the folders in src/; languages = the distinct ids that entries list under `languages:` (the same languages as the book's Index of languages). `python lessons/book/build.py --check` prints both numbers and warns when this line is stale. -->
 
 A series of responses to a code challenge that has morphed into a set of educational exercises about programming languages and how to think about programming languages. **New: [Learn Programming the Weird Way!](lessons/README.md)**, a set of lessons built on these examples. The book is numbered from v3 on (v4 adds a picture of how every program runs, and a chapter on events): see [what each version added](lessons/book/VERSIONS.md).
@@ -86,6 +86,7 @@ Every entry builds the same small demo: make up some *Meetings / Coding / Debugg
 | **RegEx, pcre2grep** | Jim | No custom code at all: a stock `pcre2grep`, one command line | Program exit codes as control flow | [`src/regex-pcre2grep`](src/regex-pcre2grep/README.md) |
 | **RegEx, Perl** | Jim | One `=~` match does everything, then deliberately returns false | Executable code inside a live regex match | [`src/regex-perl`](src/regex-perl/README.md) |
 | **Rust** | Jim | No `;`, `let` or `return` in `main` - a test enforces it | Iterators and closures as control flow | [`src/RustChallenge1`](src/RustChallenge1/README.md) |
+| **SQLite, weirder** | Ken | Database rows wire 65 NAND gates; one recursive CTE clocks an adder and a stop comparator | Digital logic, circuit interpretation and persistent execution traces | [`src/sqlite-weird`](src/sqlite-weird/README.md) |
 | **Tcl** | Jim | A `while` loop over dicts, SQL parameters bound straight from Tcl variables and an optional Tk window that is tested headless | Idiomatic Tcl: braces, dicts, `db eval` bindings and Tk | [`src/tcl`](src/tcl/README.md) |
 | **Tcl, weirder** | Jim | The program is text in a SQLite table, fetched by an overridden `unknown`; a recursive trigger is the loop and `INSERT ... WHERE` is the stop rule | Code as data, and a database trigger as control flow | [`src/tcl-weird`](src/tcl-weird/README.md) |
 | **XAML** | Jim | The program *is* a `.xaml` file, run by the parser that loads it | XAML as a runtime interpreter, not just markup | [`src/xaml`](src/xaml/README.md) |
